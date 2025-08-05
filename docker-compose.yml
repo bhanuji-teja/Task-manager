@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  backend:
+    build: .
+    container_name: smart-task-backend
+    volumes:
+      - ./backend:/app/backend
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=sqlite:///./tasks.db
